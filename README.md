@@ -3,11 +3,11 @@
 ## How to run in development
 
 ### Setting Environment Variables
-- Copy file `.env.example` at [config/database/env.example]((config/database/.env.example))
+- Copy file `.env.example` at [app/config/database/env.example]((app/config/database/.env.example))
 - Rename file `.env copy.example` to `.env`  
 - Change name database  
   
-   Example config/database/.env:
+   Example app/config/database/.env:
    ```sh
      HOSTNAME_DATABASE=localhost
      USERNAME_DATABASE=root
