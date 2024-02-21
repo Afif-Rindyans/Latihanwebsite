@@ -1,10 +1,13 @@
 <?php
-  $host = "localhost";
-  $user = "root";
-  $pass = "";
-  $debe = "showroom_21022024";
+  use DOTENV\DotEnv;
+  (new DotEnv(__DIR__ . '\.env'))->load();
 
-  $connection = mysqli_connect($host, $user, $pass, $debe);
+  $host = getenv("HOSTNAME_DATABASE");
+  $user = getenv("USERNAME_DATABASE");
+  $pass = getenv("PASSWORD_DATABASE");
+  $db_name = getenv("NAME_DATABASE");
+
+  $connection = mysqli_connect($host, $user, $pass, $db_name);
 
   if (!$connection) {
     die("Koneksi gagal: " . mysqli_connect_error());

@@ -1,4 +1,5 @@
 <?php
+  include "app/dotenv.php";
   include "config/database/connect.php";
   include "config/default_path.php";
   include "components/navbar.php";
