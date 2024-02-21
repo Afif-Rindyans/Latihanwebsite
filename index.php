@@ -1,7 +1,7 @@
 <?php
   include "app/dotenv.php";
-  include "config/database/connect.php";
-  include "config/default_path.php";
+  include "app/default_path.php";
+  include "app/config/database/connect.php";
   include "components/navbar.php";
   include "components/form_contact_us.php";
 
@@ -236,16 +236,16 @@
                 echo FormContactUS();
                 
                 if (isset($_POST["save"])) {
-                  $email=mysqli_real_escape_string($koneksi, $_POST["email"]);
-                  $nama=mysqli_real_escape_string($koneksi, $_POST["nama"]);
-                  $chat=mysqli_real_escape_string($koneksi, $_POST["chat"]);
+                  $email=mysqli_real_escape_string($connection, $_POST["email"]);
+                  $nama=mysqli_real_escape_string($connection, $_POST["nama"]);
+                  $chat=mysqli_real_escape_string($connection, $_POST["chat"]);
               
-                  $save = mysqli_query($koneksi, "INSERT INTO chat_visitor (`email`, `nama`, `chat`) VALUES('$email','$nama','$chat')");
+                  $save = mysqli_query($connection, "INSERT INTO chat_visitor (`email`, `nama`, `chat`) VALUES('$email','$nama','$chat')");
                   
                   if ($save){
-                    echo "<script> alert('Data tersimpan'); </script>";
+                    echo "<script> alert('Pesan terkirim'); </script>";
                   } else{
-                    echo "<script> alert('Data gagal tersimpan !!!'); </script>";
+                    echo "<script> alert('Pesan gagal terkirim!'); </script>";
                   }
                 }
               ?>

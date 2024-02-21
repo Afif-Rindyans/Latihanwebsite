@@ -1,8 +1,8 @@
 <?php
   $BASE_URL="../..";
   include "$BASE_URL/app/dotenv.php";
-  include "$BASE_URL/config/database/connect.php";
-  include "$BASE_URL/config/default_path.php";
+  include "$BASE_URL/app/default_path.php";
+  include "$BASE_URL/app/config/database/connect.php";
   include "$BASE_URL/components/navbar.php";
   include "$BASE_URL/components/form_contact_us.php";
   include "$BASE_URL/components/card.php";
