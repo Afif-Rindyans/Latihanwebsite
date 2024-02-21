@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$debe = "showroam";
+$debe = "showroom_21022024";
 
 $koneksi = mysqli_connect($host, $user, $pass, $debe);
 

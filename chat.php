@@ -68,7 +68,7 @@
 
 /* Gaya Kolom Action */
 .table tr {
-  width: ; /* Sesuaikan lebar kolom Action sesuai kebutuhan */
+  width: auto; /* Sesuaikan lebar kolom Action sesuai kebutuhan */
 }
 
 /* Gaya Link Action */
