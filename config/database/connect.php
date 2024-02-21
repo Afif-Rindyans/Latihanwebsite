@@ -4,9 +4,9 @@
   $pass = "";
   $debe = "showroom_21022024";
 
-  $koneksi = mysqli_connect($host, $user, $pass, $debe);
+  $connection = mysqli_connect($host, $user, $pass, $debe);
 
-  if (!$koneksi) {
+  if (!$connection) {
     die("Koneksi gagal: " . mysqli_connect_error());
   }
 ?>

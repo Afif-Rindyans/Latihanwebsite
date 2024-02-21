@@ -4,6 +4,14 @@
   include "$BASE_URL/config/default_path.php";
   include "$BASE_URL/components/navbar.php";
   include "$BASE_URL/components/form_contact_us.php";
+  include "$BASE_URL/components/card.php";
+
+  $sql_sedan = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'Sedan'";
+  $sql_american = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'American Muscle'";
+  $sql_suv = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'SUV'";
+  $sql_sport = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'Sport'";
+  $sql_supercar = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'Supercar'";
+  $sql_offroad = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'Off-Road'";
 ?>
 
 <!DOCTYPE html>
@@ -58,414 +66,172 @@
         }
       }
     </style>
-    <title>Latihan</title>
+    <title>Showroam</title>
   </head>
-  <body class="">
+  <body>
     <?=Navbar($path)?>
 
     <div class="jumbotron jumbotron-fluid custom-gradient-1" >
       <div class="container text-center text-light emblem">
-        <img src="<?=$BASE_URL?>/public/chiron.jpg" width="25%" class="rounded-circle img-thumbnail">
+        <img src="<?=$BASE_URL?>/public/cars/chiron.jpg" width="25%" class="rounded-circle img-thumbnail">
         <h4 class="display-4">Ini adalah halaman Showroam</h4>
         <p class="lead">Selamat datang di sesuatu yang tidak bisa dijangkau</p>
       </div>
     </div>
 
     <section id="about" class="about">
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">
-          <h2>About</h2>
-        </div> 
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-md-5 text-justify">
-          <p>
-            Showroom mobil adalah fasilitas atau tempat di mana dealer mobil menampilkan berbagai model dan jenis mobil yang mereka jual kepada calon pembeli. Ini adalah titik penjualan utama untuk produsen mobil dan dealer, di mana konsumen dapat melihat, menyentuh, dan kadang-kadang mencoba mobil sebelum melakukan pembelian.</p>
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <h2>About</h2>
+          </div> 
         </div>
-        
+
+        <div class="row justify-content-center">
           <div class="col-md-5 text-justify">
-            <p>Showroom mobil memainkan peran penting dalam industri otomotif sebagai titik pertemuan antara produsen, dealer, dan konsumen. Mereka menciptakan kesempatan bagi pelanggan untuk menjelajahi, membandingkan, dan memilih mobil yang paling sesuai dengan kebutuhan dan keinginan mereka.</p>
+            <p>
+              Showroom mobil adalah fasilitas atau tempat di mana dealer mobil menampilkan berbagai model dan jenis mobil yang mereka jual kepada calon pembeli. Ini adalah titik penjualan utama untuk produsen mobil dan dealer, di mana konsumen dapat melihat, menyentuh, dan kadang-kadang mencoba mobil sebelum melakukan pembelian.
+            </p>
+          </div>
           
+          <div class="col-md-5 text-justify">
+            <p>
+              Showroom mobil memainkan peran penting dalam industri otomotif sebagai titik pertemuan antara produsen, dealer, dan konsumen. Mereka menciptakan kesempatan bagi pelanggan untuk menjelajahi, membandingkan, dan memilih mobil yang paling sesuai dengan kebutuhan dan keinginan mereka.
+            </p>   
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
-<section id="portofolio" class="portofolio bg-dark pb-4">
-    <div class="container ">
-      <div class="row mb-4 pt-4">
-        <div class="col text-center text-light">
-          <h2>Showroam berbagai jenis mobil</h2>
+    <section id="portofolio" class="portofolio bg-dark pb-4">
+      <div class="container ">
+        <div class="row mb-4 pt-4">
+          <div class="col text-center text-light">
+            <h2>Showroam berbagai jenis mobil</h2>
+          </div>
         </div>
-      </div>
 
         <h4 class="text-light">Sedan</h4>
-      <div class="row mb-5 gambar">
-        <div class="col-md ">
-          <div class="card">
-            <img class="card-img-top" src="images/civic.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Honda Civic 2018</h6>
-              <a href="detail.php?id_mobil=1" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
+        <div class="row mb-5 gambar">
+          <?php 
+            $cars_sedan = $connection->query($sql_sedan);
+
+            if ($cars_sedan->num_rows > 0) {
+              while($car = $cars_sedan->fetch_assoc()) {
+                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+              }
+            } else {
+              echo "<div class='col-md'>Data tidak ada.</div>";
+            }
+          ?>
         </div>
 
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/Corolla1998.png" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Toyota Corolla 1998</h6>
-              <a href="detail.php?id_mobil=2" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
+        <h4 class="text-light">American Muscle</h4>
+        <div class="row mb-5 gambar">
+          <?php 
+            $cars_american = $connection->query($sql_american);
 
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/tiger.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Mercedes Tiger</h6>
-              <a href="detail.php?id_mobil=3" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-            <div class="card">
-              <img class="card-img-top" src="images/avenue.jpg" style="height: 120px;" alt="Card image cap">
-              <div class="card-body">
-                <h6 class="card-title">Chrysler 5ft Avenue</h6>
-                <a href="detail.php?id_mobil=4" class="btn btn-primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-md">
-            <div class="card">
-              <img class="card-img-top" src="images/bmwe30.jpg" style="height: 120px;" alt="Card image cap">
-              <div class="card-body">
-                <h6 class="card-title">BMW E30 1991</h6>
-                <a href="detail.php?id_mobil=5" class="btn btn-primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-      </div>
-
-
-      <h4 class="text-light">American Muscle</h4>
-      <div class="row mb-5 gambar">
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/charger1970.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Dodge Charger R/T 1970</h6>
-              <a href="detail.php?id_mobil=6" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/demon.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Dodge Challenger SRT Demon</h6>
-              <a href="detail.php?id_mobil=7" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/gtx.png" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Plymouth GTX 1971</h6>
-              <a href="detail.php?id_mobil=8" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-       <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/mustang.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Ford Mustang GT 2005</h6>
-              <a href="detail.php?id_mobil=9" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/camaross.png" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Chevrolet Camaro SS 2020</h6>
-              <a href="detail.php?id_mobil=10" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>    
-      </div>
-
-
-      <h4 class="text-light">SUV</h4>
-      <div class="row mb-5 gambar">
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/audiq3.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Audi Q3 Sportback</h6>
-              <a href="detail.php?id_mobil=11" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/cherokee.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Jeep Grand Cherokee 2015</h6>
-              <a href="detail.php?id_mobil=12" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/rr.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Land Rover-Range Rover</h6>
-              <a href="detail.php?id_mobil=13" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-            <div class="card">
-              <img class="card-img-top" src="images/pajero.jpg" style="height: 120px;" alt="Card image cap">
-              <div class="card-body">
-                <h6 class="card-title">Mitsubishi Pajero Sport</h6>
-                <a href="detail.php?id_mobil=14" class="btn btn-primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-md">
-            <div class="card">
-              <img class="card-img-top" src="images/isuzumux.jpg" style="height: 120px;" alt="Card image cap">
-              <div class="card-body">
-                <h6 class="card-title">Isuzu MU-X</h6>
-                <a href="detail.php?id_mobil=15" class="btn btn-primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-      </div>
-
-
-      <h4 class="text-light">Sport</h4>
-      <div class="row mb-5 gambar">
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/m3.png" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">BMW M3 GTR</h6>
-              <a href="detail.php?id_mobil=16" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/rx7.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Mazda RX-7</h6>
-              <a href="detail.php?id_mobil=17" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/skyliner34.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Nissan Skyline GTR R-34</h6>
-              <a href="detail.php?id_mobil=18" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-       <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/lancerx.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Mitsubishi Lancer Evo-X</h6>
-              <a href="detail.php?id_mobil=19" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/mk4.png" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Toyota Supra MK-4</h6>
-              <a href="detail.php?id_mobil=20" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <h4 class="text-light">Supercar</h4>
-      <div class="row mb-5 gambar">
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/carreragt.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Porsche Carrera GT</h6>
-              <a href="detail.php?id_mobil=21" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/lykan.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">W-Motor Lykan Hypersport</h6>
-              <a href="detail.php?id_mobil=22" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/chiron.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Bugatti Chiron</h6>
-              <a href="detail.php?id_mobil=25" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-            <div class="card">
-              <img class="card-img-top" src="images/corvettezr1.png" style="height: 120px;" alt="Card image cap">
-              <div class="card-body">
-                <h6 class="card-title">Chevrolet Corvette ZR1</h6>
-                <a href="detail.php?id_mobil=23" class="btn btn-primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-md">
-            <div class="card">
-              
-              <img class="card-img-top" src="images/jesko.png" style="height: 120px;" alt="Card image cap">
-              <div class="card-body">
-                <h6 class="card-title">Koenigsegg Jesko Absolut</h6>
-                <a href="detail.php?id_mobil=24" class="btn btn-primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-      </div>
-
-
-      <h4 class="text-light">Off-Road</h4>
-      <div class="row mb-5 gambar">
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/cruise.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Toyota Land Cruise 1990</h6>
-              <a href="detail.php?id_mobil=26" class="btn btn-primary">Lihat</a>
-
-
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/h2.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Hummer H2</h6>
-              <a href="detail.php?id_mobil=27" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/defender.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Land Rover: Defender</h6>
-              <a href="detail.php?id_mobil=28" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-       <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/colorado.jpg" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Chevrolet Colorado ZR2 Bison</h6>
-              <a href="detail.php?id_mobil=29" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="card">
-            <img class="card-img-top" src="images/rubicon.png" style="height: 120px;" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title">Jeep Wrangler Rubicon</h6>
-              <a href="detail.php?id_mobil=30" class="btn btn-primary">Lihat</a>
-            </div>
-          </div>
+            if ($cars_american->num_rows > 0) {
+              while($car = $cars_american->fetch_assoc()) {
+                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+              }
+            } else {
+              echo "<div class='col-md'>Data tidak ada.</div>";
+            }
+          ?>
         </div>
         
+        <h4 class="text-light">SUV</h4>
+        <div class="row mb-5 gambar">
+          <?php 
+            $cars_suv = $connection->query($sql_suv);
 
-      </div>
-    </div>
-
-
-    
-  </section>
-
-  
-
-
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="row pt-4 mb-4">
-        <div class="col text-center">
-          <h2>Contact Us</h2>
-
+            if ($cars_suv->num_rows > 0) {
+              while($car = $cars_suv->fetch_assoc()) {
+                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+              }
+            } else {
+              echo "<div class='col-md'>Data tidak ada.</div>";
+            }
+          ?>
         </div>
 
+        <h4 class="text-light">Sport</h4>
+        <div class="row mb-5 gambar">
+          <?php 
+            $cars_sport = $connection->query($sql_sport);
+
+            if ($cars_sport->num_rows > 0) {
+              while($car = $cars_sport->fetch_assoc()) {
+                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+              }
+            } else {
+              echo "<div class='col-md'>Data tidak ada.</div>";
+            }
+          ?>
+        </div>
+
+        <h4 class="text-light">Supercar</h4>
+        <div class="row mb-5 gambar">
+          <?php 
+            $cars_supercar = $connection->query($sql_supercar);
+
+            if ($cars_supercar->num_rows > 0) {
+              while($car = $cars_supercar->fetch_assoc()) {
+                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+              }
+            } else {
+              echo "<div class='col-md'>Data tidak ada.</div>";
+            }
+          ?>
+        </div>
+
+        <h4 class="text-light">Off-Road</h4>
+        <div class="row mb-5 gambar">
+          <?php 
+            $cars_offroad = $connection->query($sql_offroad);
+
+            if ($cars_offroad->num_rows > 0) {
+              while($car = $cars_offroad->fetch_assoc()) {
+                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+              }
+            } else {
+              echo "<div class='col-md'>Data tidak ada.</div>";
+            }
+          ?>
+        </div>
       </div>
-      <div class="row justify-content-center mb-4">
-        <div class="col-lg-4">
-          <div class="card text-white bg-primary mb-3">
-            
-            <div class="card-body">
-              <h5 class="card-title">Contact Us</h5>
-              <p class="card-text">Jika ingin menemui Saya, silahkan bisa mengunjungi alamat dibawah. Atau Anda bisa menyampaikkan pesan & kesan.</p>
-            </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="row pt-4 mb-4">
+          <div class="col text-center">
+            <h2>Contact Us</h2>
           </div>
-          <ul class="list-group">
-            <li class="list-group-item"><h1>Lokasi</h1></li>
-            <li class="list-group-item">Wiradesa</li>
-            <li class="list-group-item">Jl. Patimura</li>
-            <li class="list-group-item">Kabupaten Pekalongan</li>
-            <li class="list-group-item">Jawa Tengah, Indonesia</li>
-          </ul>
         </div>
 
-        <div class="col-lg-6">
+        <div class="row justify-content-center mb-4">
+          <div class="col-lg-4">
+            <div class="card text-white bg-primary mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Contact Us</h5>
+                <p class="card-text">
+                  Jika ingin menemui Saya, silahkan bisa mengunjungi alamat dibawah. Atau Anda bisa menyampaikkan pesan & kesan.
+                </p>
+              </div>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item"><h1>Lokasi</h1></li>
+              <li class="list-group-item">Wiradesa</li>
+              <li class="list-group-item">Jl. Patimura</li>
+              <li class="list-group-item">Kabupaten Pekalongan</li>
+              <li class="list-group-item">Jawa Tengah, Indonesia</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6">
             <form action="" method="post">
               <?php 
                 echo FormContactUS();
@@ -486,12 +252,9 @@
               ?>
             </form>
           </div>
-
+        </div>
       </div>
-
-    </div>
-
-  </section>
+    </section>
 
     <?=Footer()?>
   </body>

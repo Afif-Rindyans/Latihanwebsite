@@ -31,7 +31,6 @@
         }
       }
     </style>
-    
 
     <title>Hello, world!</title>
   </head>
