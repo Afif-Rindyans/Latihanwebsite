@@ -7,7 +7,7 @@
   - Install using [composer](https://getcomposer.org/download/)
   - Type command line in your terminal
     ```sh
-      composer install
+    composer install
     ```
 
 ### 2. Create Database
