@@ -1,5 +1,5 @@
 <?php 
-  function Card($path, $BASE_URL, $image, $title) {
+  function Card($path, $BASE_URL, $image, $title, $id) {
     return "
       <div class='col-md'>
         <div class='card'>
@@ -7,7 +7,7 @@
           
           <div class='card-body'>
             <h6 class='card-title'>$title</h6>
-            <a href='$path/cars/$title' class='btn btn-primary'>Lihat</a>
+            <a href='$path/page/showroam/car?id=$id' class='btn btn-primary'>Lihat</a>
           </div>
         </div>
       </div>

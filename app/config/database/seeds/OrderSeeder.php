@@ -25,7 +25,7 @@ class OrderSeeder extends AbstractSeed
           'city'         => 'jeko',
           'subdistrict'  => 'jahil',
           'postal_code'  => '0961',
-          'payment_type' => 'M-Banking',
+          'payment_type' => 'Cash',
           'no_telp'      => '1273174671637',
           'created_at'      => date('Y-m-d H:i:s'),
         ],
@@ -37,7 +37,7 @@ class OrderSeeder extends AbstractSeed
           'city'         => 'bito',
           'subdistrict'  => 'keno',
           'postal_code'  => '2831',
-          'payment_type' => 'Cash',
+          'payment_type' => 'Kredit',
           'no_telp'      => '7183174671637',
           'created_at'      => date('Y-m-d H:i:s'),
         ]

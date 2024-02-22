@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $BASE_URL = "..";
   
   include "$BASE_URL/app/dotenv.php";

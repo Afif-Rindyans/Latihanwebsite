@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 function Navbar($path)
 {
   if (isset($_SESSION["username"])) {

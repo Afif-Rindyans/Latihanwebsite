@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include "app/dotenv.php";
   include "app/default_path.php";
   include "app/config/database/connect.php";

@@ -5,11 +5,7 @@
     $protocol = 'http';
   }
 
-  if (isset($_SESSION['role'])) {
-    if ($_SESSION["role"] != "admin") {
-      header("Location: $protocol://localhost/$path/page/auth/login");
-    }
-  } else {
+  if (!isset($_SESSION['username'])) {
     header("Location: $protocol://localhost/$path/page/auth/login");
   }
 ?>

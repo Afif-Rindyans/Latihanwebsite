@@ -1,4 +1,5 @@
 <?php 
+  session_start();
   $BASE_URL="../..";
   include "$BASE_URL/app/default_path.php";
   include "$BASE_URL/components/navbar.php";

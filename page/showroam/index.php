@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $BASE_URL="../..";
   include "$BASE_URL/app/dotenv.php";
   include "$BASE_URL/app/default_path.php";
@@ -120,7 +121,7 @@
 
             if ($cars_sedan->num_rows > 0) {
               while($car = $cars_sedan->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"], $car["car_id"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -135,7 +136,7 @@
 
             if ($cars_american->num_rows > 0) {
               while($car = $cars_american->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"], $car["car_id"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -150,7 +151,7 @@
 
             if ($cars_suv->num_rows > 0) {
               while($car = $cars_suv->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"], $car["car_id"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -165,7 +166,7 @@
 
             if ($cars_sport->num_rows > 0) {
               while($car = $cars_sport->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"], $car["car_id"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -180,7 +181,7 @@
 
             if ($cars_supercar->num_rows > 0) {
               while($car = $cars_supercar->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"], $car["car_id"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -195,7 +196,7 @@
 
             if ($cars_offroad->num_rows > 0) {
               while($car = $cars_offroad->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"], $car["car_id"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
