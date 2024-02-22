@@ -145,30 +145,26 @@
               </thead>
               <tbody>
                 <?php 
-                  $no=1;
-
-                  $sql = mysqli_query($connection,"SELECT * FROM pemesanan");
+                  $sql = mysqli_query($connection,"SELECT * FROM orders");
                   while ($car = mysqli_fetch_array($sql)) {
                     echo "
                       <tr>
-                        <td>$no</td>
-                        <td>$car[orderan]</td>
-                        <td>$car[nama_depan]</td>
-                        <td>$car[nama_belakang]</td>
-                        <td>$car[provinsi]</td>
-                        <td>$car[kota]</td>
-                        <td>$car[kecamatan]</td>
-                        <td>$car[kode_pos]</td>
-                        <td>$car[pembayaran]</td>
-                        <td>$car[no_hp]</td>
-                        <td>$car[tanggal]</td>
+                        <td>$car[order_id]</td>
+                        <td>$car[brand]</td>
+                        <td>$car[first_name]</td>
+                        <td>$car[last_name]</td>
+                        <td>$car[province]</td>
+                        <td>$car[city]</td>
+                        <td>$car[subdistrict]</td>
+                        <td>$car[postal_code]</td>
+                        <td>$car[payment_type]</td>
+                        <td>$car[no_telp]</td>
+                        <td>$car[created_at]</td>
                         <td>
-                          <button class='hapus-btn' data-id='{$no}'>Hapus</button>
+                          <button class='hapus-btn' data-id='{$car["order_id"]}'>Hapus</button>
                         </td>
                       </tr>
                     ";
-
-                    $no++;
                   }
                 ?>
               </tbody>

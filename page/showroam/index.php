@@ -7,12 +7,12 @@
   include "$BASE_URL/components/form_contact_us.php";
   include "$BASE_URL/components/card.php";
 
-  $sql_sedan = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'Sedan'";
-  $sql_american = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'American Muscle'";
-  $sql_suv = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'SUV'";
-  $sql_sport = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'Sport'";
-  $sql_supercar = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'Supercar'";
-  $sql_offroad = "SELECT * FROM detail_kendaraan WHERE tipe_kendaraan = 'Off-Road'";
+  $sql_sedan = "SELECT * FROM cars_detail WHERE type_car = 'Sedan'";
+  $sql_american = "SELECT * FROM cars_detail WHERE type_car = 'American Muscle'";
+  $sql_suv = "SELECT * FROM cars_detail WHERE type_car = 'SUV'";
+  $sql_sport = "SELECT * FROM cars_detail WHERE type_car = 'Sport'";
+  $sql_supercar = "SELECT * FROM cars_detail WHERE type_car = 'Supercar'";
+  $sql_offroad = "SELECT * FROM cars_detail WHERE type_car = 'Off-Road'";
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +120,7 @@
 
             if ($cars_sedan->num_rows > 0) {
               while($car = $cars_sedan->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -135,7 +135,7 @@
 
             if ($cars_american->num_rows > 0) {
               while($car = $cars_american->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -150,7 +150,7 @@
 
             if ($cars_suv->num_rows > 0) {
               while($car = $cars_suv->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -165,7 +165,7 @@
 
             if ($cars_sport->num_rows > 0) {
               while($car = $cars_sport->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -180,7 +180,7 @@
 
             if ($cars_supercar->num_rows > 0) {
               while($car = $cars_supercar->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -195,7 +195,7 @@
 
             if ($cars_offroad->num_rows > 0) {
               while($car = $cars_offroad->fetch_assoc()) {
-                echo Card($path, "$BASE_URL/public/cars", $car["gambar_kendaraan"], $car["merek_mobil"]);
+                echo Card($path, "$BASE_URL/public/cars", $car["car_image"], $car["brand"]);
               }
             } else {
               echo "<div class='col-md'>Data tidak ada.</div>";
@@ -238,11 +238,11 @@
                 echo FormContactUS();
                 
                 if (isset($_POST["save"])) {
-                  $email=mysqli_real_escape_string($koneksi, $_POST["email"]);
-                  $nama=mysqli_real_escape_string($koneksi, $_POST["nama"]);
-                  $chat=mysqli_real_escape_string($koneksi, $_POST["chat"]);
+                  $email=mysqli_real_escape_string($connection, $_POST["email"]);
+                  $nama=mysqli_real_escape_string($connection, $_POST["nama"]);
+                  $chat=mysqli_real_escape_string($connection, $_POST["chat"]);
               
-                  $save = mysqli_query($koneksi, "INSERT INTO chat_visitor (`email`, `nama`, `chat`) VALUES('$email','$nama','$chat')");
+                  $save = mysqli_query($connection, "INSERT INTO chat_visitors (`email`, `name`, `chat`) VALUES('$email','$nama','$chat')");
                   
                   if ($save){
                     echo "<script> alert('Data tersimpan'); </script>";

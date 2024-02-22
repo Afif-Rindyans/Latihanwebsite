@@ -10,7 +10,7 @@
     $id_mobil = $_GET['id'];
 
     // Query SQL untuk menghapus data
-    $query = "DELETE FROM detail_kendaraan WHERE id_mobil = '$id_mobil'";
+    $query = "DELETE FROM cars_detail WHERE car_id = '$id_mobil'";
     $result = mysqli_query($connection, $query);
 
     if ($result) {
@@ -174,25 +174,25 @@
                 <?php 
                   $no=1;
 
-                  $sql = mysqli_query($connection,"select * from detail_kendaraan");
+                  $sql = mysqli_query($connection,"SELECT * FROM cars_detail");
                   while ($car = mysqli_fetch_array($sql)) {
                     echo "
                       <tr>
                         <td>$no</td>
-                        <td>$car[merek_mobil]</td>
-                        <td>$car[harga]</td>
-                        <td>$car[tipe_kendaraan]</td>
-                        <td>$car[tipe_mesin]</td>
-                        <td>$car[kapasitas_mesin]</td>
-                        <td>$car[bahan_bakar]</td>
-                        <td>$car[tenaga_mesin]</td>
-                        <td>$car[jenis_transmisi]</td>
-                        <td>$car[jenis_turbo]</td>
+                        <td>$car[brand]</td>
+                        <td>$car[price]</td>
+                        <td>$car[type_car]</td>
+                        <td>$car[type_engine]</td>
+                        <td>$car[oil_capacity]</td>
+                        <td>$car[fuel]</td>
+                        <td>$car[engine_power]</td>
+                        <td>$car[type_transmission]</td>
+                        <td>$car[type_turbo]</td>
                         <td>
-                          <img class='card-img-top' src='$BASE_URL/public/cars/".$car["gambar_kendaraan"]."'>
+                          <img class='card-img-top' src='$BASE_URL/public/cars/".$car["car_image"]."'>
                         </td>
                         <td>
-                          <button class='hapus-btn' data-id='{$car['id_mobil']}'>Hapus</button>
+                          <button class='hapus-btn' data-id='{$car['car_id']}'>Hapus</button>
                         </td>
                       </tr>
                     ";

@@ -5,8 +5,8 @@
   include "$BASE_URL/app/config/database/connect.php";
   include "$BASE_URL/components/navbar_dashboard.php";
 
-  // Query SQL untuk mendapatkan data dari tabel 'detail_kendaraan'
-  $query = "SELECT harga FROM detail_kendaraan";
+  // Query SQL untuk mendapatkan data dari tabel 'cars_detail'
+  $query = "SELECT price FROM cars_detail";
   $result = $connection->query($query);
 
   // Inisialisasi variabel total harga
@@ -17,7 +17,7 @@
     // Loop through each row
     while ($row = $result->fetch_assoc()) {
         // Ambil nilai 'harga' dari setiap baris
-        $harga = $row['harga'];
+        $harga = $row['price'];
 
         // Bersihkan string 'harga' dari karakter non-numerik
         $numerikHarga = (float) preg_replace("/[^0-9]/", "", $harga);
@@ -39,7 +39,7 @@
   include "$BASE_URL/app/config/database/connect.php";
 
   // Query SQL untuk menghitung jumlah baris dalam tabel 'pemesanan'
-  $query = "SELECT COUNT(*) AS jumlah_kolom FROM pemesanan";
+  $query = "SELECT COUNT(*) AS jumlah_kolom FROM orders";
   $result = $connection->query($query);
 
   // Periksa apakah query berhasil dijalankan
@@ -61,7 +61,7 @@
   include "$BASE_URL/app/config/database/connect.php";
 
   // Query SQL untuk menghitung jumlah baris dalam tabel 'pemesanan'
-  $query = "SELECT COUNT(*) AS jumlah_chat FROM chat_visitor";
+  $query = "SELECT COUNT(*) AS jumlah_chat FROM chat_visitors";
   $result = $connection->query($query);
 
   // Periksa apakah query berhasil dijalankan
@@ -83,7 +83,7 @@
   include "$BASE_URL/app/config/database/connect.php";
 
   // Query SQL untuk menghitung jumlah baris dalam tabel 'pemesanan'
-  $query = "SELECT COUNT(*) AS jumlah_akun FROM login";
+  $query = "SELECT COUNT(*) AS jumlah_akun FROM users";
   $result = $connection->query($query);
 
   // Periksa apakah query berhasil dijalankan

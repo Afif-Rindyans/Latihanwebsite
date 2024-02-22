@@ -32,7 +32,7 @@
       }
     </style>
 
-    <title>Hello, world!</title>
+    <title>Muhammad Afif Rindyansyah | Developers</title>
   </head>
   <body class="mb-5">
     <?=Navbar($path)?>

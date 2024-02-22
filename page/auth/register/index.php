@@ -23,7 +23,7 @@
     ) {
       echo "<script> alert('Isi form dengan lengkap!') </script>";
     } else {
-      $save=mysqli_query($connection, "INSERT INTO user VALUES('$username','$email','$password','user')");
+      $save=mysqli_query($connection, "INSERT INTO users (`username`, `email`, `password`, `role`) VALUES('$username','$email','$password','user')");
       
       if ($save){
         header("Location: $protocol://localhost/$path/page/auth/login");

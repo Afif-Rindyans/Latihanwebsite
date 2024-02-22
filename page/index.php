@@ -242,7 +242,7 @@
                   $nama=mysqli_real_escape_string($connection, $_POST["nama"]);
                   $chat=mysqli_real_escape_string($connection, $_POST["chat"]);
               
-                  $save = mysqli_query($connection, "INSERT INTO chat_visitor (`email`, `nama`, `chat`) VALUES('$email','$nama','$chat')");
+                  $save = mysqli_query($connection, "INSERT INTO chat_visitors (`email`, `name`, `chat`) VALUES('$email','$nama','$chat')");
                   
                   if ($save){
                     echo "<script> alert('Pesan terkirim'); </script>";

@@ -135,18 +135,20 @@
                   <th>Email Pengirim</th>
                   <th>Nama Pengirim</th>
                   <th>Pesan Yang Disampaikan</th>
+                  <th>Tanggal</th>
                 </tr>
               </thead>
               <tbody>
                 <?php 
-                  $sql = mysqli_query($connection,"SELECT * FROM chat_visitor");
+                  $sql = mysqli_query($connection,"SELECT * FROM chat_visitors");
                   while ($car = mysqli_fetch_array($sql)) {
                     echo "
                       <tr>
-                        <td>$car[id]</td>
+                        <td>$car[chat_id]</td>
                         <td>$car[email]</td>
-                        <td>$car[nama]</td>
+                        <td>$car[name]</td>
                         <td>$car[chat]</td>
+                        <td>$car[created_at]</td>
                       </tr>
                     ";
                   }
