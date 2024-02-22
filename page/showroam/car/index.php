@@ -106,7 +106,7 @@
   </head>
 
   <body class="mt-5" style="background-image: url('<?=$BASE_URL?>/public/cars/bg.jpg'); background-size: cover; background-repeat: no-repeat;">
-    <?=Navbar($path)?>
+    <?=Navbar($path, "showroam")?>
 
     <section id="contact" class="contact">
       <div class="container">

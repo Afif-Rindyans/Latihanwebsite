@@ -71,7 +71,7 @@
     <title>Showroam</title>
   </head>
   <body>
-    <?=Navbar($path)?>
+    <?=Navbar($path, "showroam")?>
 
     <div class="jumbotron jumbotron-fluid custom-gradient-1" >
       <div class="container text-center text-light emblem">

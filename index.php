@@ -70,7 +70,7 @@
   </head>
 
   <body>
-    <?=Navbar($path)?>
+    <?=Navbar($path, "home")?>
     
     <section class="jumbotron jumbotron-fluid custom-gradient-1" >
       <div class="container text-center text-light">

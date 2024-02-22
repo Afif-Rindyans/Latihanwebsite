@@ -133,7 +133,7 @@
   </head>
 
   <body class="" style="background-image: url('<?=$BASE_URL?>/public/cars/bg.jpg'); background-size: cover; background-repeat: no-repeat;">
-    <?=Navbar($path)?>
+    <?=Navbar($path, "showroam")?>
     
     <div class="container input " >
       <form action="" method="post" class="mb-5">

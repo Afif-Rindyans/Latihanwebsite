@@ -36,7 +36,7 @@
     <title>Muhammad Afif Rindyansyah | Developers</title>
   </head>
   <body class="mb-5">
-    <?=Navbar($path)?>
+    <?=Navbar($path, "biodata")?>
 
     <section id="contact" style="padding-top: 4em;">
       <div class="container">

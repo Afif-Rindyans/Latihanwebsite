@@ -1,6 +1,10 @@
 <?php
-function Navbar($path)
+function Navbar($path, $current)
 {
+  $active_home = $current === "home" ? "active" : "";
+  $active_showroam = $current === "showroam" ? "active" : "";
+  $active_biodata = $current === "biodata" ? "active" : "";
+
   if (isset($_SESSION["username"])) {
     return "
         <nav class='navbar fixed-top navbar-expand-lg navbar-light custom-gradient'>
@@ -13,9 +17,9 @@ function Navbar($path)
         
             <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
               <div class='navbar-nav'>
-                <a class='nav-item nav-link active'>Home <span class='sr-only'>(current)</span></a>
-                <a class='nav-item nav-link' id='linkToOtherPage'  href='$path/page/showroam'>Showroam</a>
-                <a class='nav-item nav-link' href='$path/page/biodata'>Biodata</a>
+                <a class='nav-item nav-link $active_home' href='$path'>Home</span></a>
+                <a class='nav-item nav-link $active_showroam' href='$path/page/showroam'>Showroam</a>
+                <a class='nav-item nav-link $active_biodata' href='$path/page/biodata'>Biodata</a>
               </div>
             </div>
   
