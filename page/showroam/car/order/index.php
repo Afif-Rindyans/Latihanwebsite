@@ -211,6 +211,19 @@
           
         <table>
           <tr>
+            <?php 
+              if (isset($_SESSION["role"])) {
+                if ($_SESSION["role"] == "admin") {
+                  echo "
+                    <td>
+                      <a href='$path/page/admin/dashboard/orders'>
+                        <button class='btn btn-primary'>Lihat Semua Pesanan</button>
+                      </a>
+                    </td>
+                  ";
+                }
+              }
+            ?>
             <td><input type="submit" name="save" value="Save" ></td>
           </tr>
         </table>

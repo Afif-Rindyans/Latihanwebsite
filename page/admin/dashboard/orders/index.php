@@ -125,6 +125,9 @@
       <div class="row table bingkai">
         <div class="col-lg-12" align="justify">
           <h1 class="page-header text-center">DATA PEMESANAN</h1>
+          <a href="<?=$path?>/page/showroam/car/order">
+            <button class="btn btn-primary">Pesan Mobil Baru</button>
+          </a>
           
           <div class="table-container">
             <table class="table pinggir" border="1">

@@ -6,7 +6,7 @@
   include "$BASE_URL/app/dotenv.php";
   include "$BASE_URL/app/default_path.php";
   include "$BASE_URL/app/config/database/connect.php";
-  include "$BASE_URL/app/app/validation/dashboard_access.php";
+  include "$BASE_URL/app/validation/dashboard_access.php";
   include "$BASE_URL/components/navbar_dashboard.php";
 ?>
 

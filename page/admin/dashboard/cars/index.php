@@ -148,16 +148,19 @@
     <div class="pos-fixed-top">
       <?=Navbar()?>
 
-
       <div class="row table bingkai">
         <div class="col-lg-12" align="justify">
           <h1 class="page-header text-center">DATA KENDARAAN</h1>
-          
+          <a href="<?=$path?>/page/admin/dashboard/cars/add">
+            <button class="btn btn-primary">Tambah Mobil Baru</button>
+          </a>
+
           <div class="table-container">
             <table class="table pinggir" border="1">
               <thead>
                 <tr class="heading">
                   <th>No</th>
+                  <th>Showroam</th>
                   <th>MEREK MOBIL</th>
                   <th>HARGA</th>
                   <th>TIPE KENDARAAN</th>
@@ -180,6 +183,7 @@
                     echo "
                       <tr>
                         <td>$car[car_id]</td>
+                        <td>$car[showroam_name]</td>
                         <td>$car[brand]</td>
                         <td>$car[price]</td>
                         <td>$car[type_car]</td>
