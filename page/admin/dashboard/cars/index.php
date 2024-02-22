@@ -172,19 +172,17 @@
               </thead>
               <tbody>
                 <?php 
-                  $no=1;
-
                   $sql = mysqli_query($connection,"SELECT * FROM cars_detail");
                   while ($car = mysqli_fetch_array($sql)) {
                     echo "
                       <tr>
-                        <td>$no</td>
+                        <td>$car[car_id]</td>
                         <td>$car[brand]</td>
                         <td>$car[price]</td>
                         <td>$car[type_car]</td>
                         <td>$car[type_engine]</td>
-                        <td>$car[oil_capacity]</td>
                         <td>$car[fuel]</td>
+                        <td>$car[oil_capacity]</td>
                         <td>$car[engine_power]</td>
                         <td>$car[type_transmission]</td>
                         <td>$car[type_turbo]</td>
@@ -196,8 +194,6 @@
                         </td>
                       </tr>
                     ";
-
-                    $no++;
                   }
                 ?>
               </tbody>

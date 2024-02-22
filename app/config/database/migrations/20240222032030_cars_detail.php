@@ -27,7 +27,6 @@ final class CarsDetail extends AbstractMigration
         ->addColumn('price', 'string', ['limit' => 125, 'null' => false])
         ->addColumn('type_car', 'string', ['limit' => 125, 'null' => false])
         ->addColumn('type_engine', 'string', ['limit' => 125, 'null' => false])
-        ->addColumn('machine_capacity', 'string', ['limit' => 125, 'null' => false])
         ->addColumn('oil_capacity', 'string', ['limit' => 125, 'null' => false])
         ->addColumn('fuel', 'string', ['limit' => 125, 'null' => false])
         ->addColumn('engine_power', 'string', ['limit' => 125, 'null' => false])
