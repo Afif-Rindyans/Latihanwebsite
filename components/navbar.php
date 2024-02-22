@@ -1,7 +1,9 @@
 <?php
+session_start();
+
 function Navbar($path)
 {
-  if (isset($_COOKIE["username"])) {
+  if (isset($_SESSION["username"])) {
     return "
         <nav class='navbar fixed-top navbar-expand-lg navbar-light custom-gradient'>
           <div class='container'>
@@ -19,10 +21,11 @@ function Navbar($path)
               </div>
             </div>
   
-            <div>
-              <a href='$path/page/auth/login'>
+            <div class='d-flex'>
+              <div>$_SESSION[username]</div>
+              <a href='$path/page/auth/signout'>
                 <button class='btn btn-primary'>
-                  ".$_COOKIE["username"]."
+                  Logout
                 </button>
               </a>
             </div>

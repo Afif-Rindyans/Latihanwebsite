@@ -21,23 +21,21 @@
     $email = htmlspecialchars($_POST["email"]);
     $password = htmlspecialchars($_POST["password"]);
 
-    $query = "SELECT * FROM user WHERE email='$email' && password='$password'";
+    $query = "SELECT * FROM users WHERE email='$email' && password='$password'";
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) == 0) {
       $_SESSION["message"] = "Email dan password salah!. Coba lagi";
     } else {
       $row_role = mysqli_fetch_assoc($result);
-      $username = $row_role['username'];
       $role = $row_role['role'];
-
-      setcookie("username", $username, time() + (24 * 60 * 60));
-      setcookie("role", $role, time() + (24 * 60 * 60));
+      $_SESSION['username'] = $row_role['username'];
+      $_SESSION['role'] = $row_role['role'];
 
       if ($role == "user") {
         header("Location: $protocol://localhost/$path/page");
       } else {
-        header("Location: $protocol://localhost/$path/page/dashboard");
+        header("Location: $protocol://localhost/$path/page/admin/dashboard");
       }
     }
   }

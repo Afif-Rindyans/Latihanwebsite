@@ -12,10 +12,10 @@
   function Navigation($path) {
     return "
       <div class='persegi-panjang'>
-        <div class='container text-center pt-5'>
+      <div class='container text-center pt-5'>
+          <a class='btn  btn-custom rounded mb-5' href='$path/page/admin' style='width: 80%;' role='button'>Profile</a>
           <a class='btn btn-custom rounded mb-5 text-black' href='$path/page/admin/dashboard' style='width: 80%;' role='button'><h6>Home Admin</h6></a>
           <a class='btn btn-custom rounded mb-5 text-black' href='$path/page/admin/dashboard/cars' style='width: 80%;' role='button'><h6>Data Mobil</h6></a>
-          <a class='btn  btn-custom rounded mb-5' href='$path/page/admin/dashboard/cars/add' style='width: 80%;' role='button'>Tambah</a>
           <a class='btn btn-custom rounded mb-5' href='$path/page/admin/dashboard/orders'  style='width: 80%;' role='button'>Data Order</a>
           <a class='btn btn-custom rounded mb-5' href='$path/page/admin/dashboard/customer-chat'  style='width: 80%;' role='button'>Pesan</a>
           <a class='btn btn-custom rounded mb-5' href='$path/page/admin/dashboard/saham'  style='width: 80%;' role='button'>Saham Perusahaan</a>

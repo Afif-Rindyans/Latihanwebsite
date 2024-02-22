@@ -1,9 +1,12 @@
 <?php 
+  session_start();
+
   $BASE_URL="../../../..";
   
   include "$BASE_URL/app/dotenv.php";
   include "$BASE_URL/app/default_path.php";
   include "$BASE_URL/app/config/database/connect.php";
+  include "$BASE_URL/app/validation/dashboard_access.php";
   include "$BASE_URL/components/navbar_dashboard.php";
 
   if (isset($_GET['id'])) {
@@ -141,7 +144,7 @@
     <title>List Mobil</title>
   </head>
 
-  <body class="badan" style="background-image: url('images/bg.jpg'); background-repeat: no-repeat;">
+  <body class="badan" style="background-image: url('<?=$BASE_URL?>/public/cars/bg.jpg'); background-repeat: no-repeat;">
     <div class="pos-fixed-top">
       <?=Navbar()?>
 

@@ -65,15 +65,11 @@
       }
     </style>
 
-    <title>Latihan</title>
+    <title>Lieutenant Colonel</title>
   </head>
 
   <body>
     <?=Navbar($path)?>
-
-    <main>
-
-    </main>
     
     <section class="jumbotron jumbotron-fluid custom-gradient-1" >
       <div class="container text-center text-light">
