@@ -8,6 +8,20 @@
   include "$BASE_URL/app/default_path.php";
   include "$BASE_URL/app/validation/dashboard_access.php";
   include "$BASE_URL/components/navbar_dashboard.php";
+
+  if (isset($_GET['id'])) {
+    $id_order = $_GET['id'];
+
+    // Query SQL untuk menghapus data
+    $query = "DELETE FROM orders WHERE order_id = '$id_order'";
+    $result = mysqli_query($connection, $query);
+
+    if ($result) {
+      echo "<script>alert('Data berhasil dihapus.')</script>";
+    } else {
+      echo "Error: " . mysqli_error($connection);
+    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -167,7 +181,9 @@
                         <td>$car[no_telp]</td>
                         <td>$car[created_at]</td>
                         <td>
-                          <button class='hapus-btn' data-id='{$car["order_id"]}'>Hapus</button>
+                          <a href='?id=$car[order_id]'>
+                            <button class='hapus-btn'>Hapus</button>
+                          </a>
                         </td>
                       </tr>
                     ";

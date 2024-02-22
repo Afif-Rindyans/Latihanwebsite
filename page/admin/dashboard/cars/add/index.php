@@ -135,7 +135,7 @@
   
   <div class="pos-fixed-top">
     <?=Navbar()?>
-    <?Navigation($path)?>
+    <?=Navigation($path)?>
 
   <div class="container input">
   

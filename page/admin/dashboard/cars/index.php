@@ -17,7 +17,7 @@
     $result = mysqli_query($connection, $query);
 
     if ($result) {
-      echo "Data berhasil dihapus.";
+      echo "<script>alert('Data berhasil dihapus.')</script>";
     } else {
       echo "Error: " . mysqli_error($connection);
     }
@@ -197,7 +197,9 @@
                           <img class='card-img-top' src='$BASE_URL/public/cars/".$car["car_image"]."'>
                         </td>
                         <td>
-                          <button class='hapus-btn' data-id='{$car['car_id']}'>Hapus</button>
+                          <a href='?id=$car[car_id]'>
+                            <button class='hapus-btn'>Hapus</button>
+                          </a>
                         </td>
                       </tr>
                     ";
