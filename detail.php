@@ -1,6 +1,7 @@
 <?php
 // Include file koneksi
-include 'koneksi.php';
+include './app/dotenv.php';
+include './app/config/database/connect.php';
 
 // Mendapatkan nilai ID mobil dari parameter URL
 $id_mobil = isset($_GET['id_mobil']) ? $_GET['id_mobil'] : null;
@@ -11,7 +12,7 @@ $id_mobil = filter_var($id_mobil, FILTER_VALIDATE_INT, array('options' => array(
 if ($id_mobil !== false) {
     // Menyiapkan pernyataan SQL menggunakan prepared statements
     $query = "SELECT * FROM detail_kendaraan WHERE id_mobil = ?";
-    $stmt = mysqli_prepare($koneksi, $query);
+    $stmt = mysqli_prepare($connection, $query);
 
     // Mengikat parameter
     mysqli_stmt_bind_param($stmt, 'i', $id_mobil);
@@ -27,7 +28,7 @@ if ($id_mobil !== false) {
         // Lakukan sesuatu dengan data mobil
         // ...
     } else {
-        echo "Error: " . mysqli_error($koneksi);
+        echo "Error: " . mysqli_error($connection);
     }
 
     // Menutup pernyataan prepared

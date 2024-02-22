@@ -1,6 +1,7 @@
 <?php
 // Include file koneksi
-include 'koneksi.php';
+include './app/dotenv.php';
+include './app/config/database/connect.php';
 $no=1; // Ganti dengan ID mobil yang sesuai
 $ambildata = mysqli_query($koneksi,"select * from detail_kendaraan");
 
@@ -9,18 +10,18 @@ $ambildata = mysqli_query($koneksi,"select * from detail_kendaraan");
 <?php
 //input data
 if (isset($_POST['save'])) {
-  $orderan=mysqli_real_escape_string($koneksi, $_POST['orderan']);
-  $nama_depan=mysqli_real_escape_string($koneksi, $_POST['nama_depan']);
-  $nama_belakang=mysqli_real_escape_string($koneksi, $_POST['nama_belakang']);
-  $provinsi=mysqli_real_escape_string($koneksi, $_POST['provinsi']);
-  $kota=mysqli_real_escape_string($koneksi, $_POST['kota']);
-  $kecamatan=mysqli_real_escape_string($koneksi, $_POST['kecamatan']);
-  $kode_pos=mysqli_real_escape_string($koneksi, $_POST['kode_pos']);
-  $pembayaran=mysqli_real_escape_string($koneksi, $_POST['pembayaran']);
-  $no_hp=mysqli_real_escape_string($koneksi, $_POST['no_hp']);
-  $tanggal=mysqli_real_escape_string($koneksi, $_POST['tanggal']);
+  $orderan=mysqli_real_escape_string($connection, $_POST['orderan']);
+  $nama_depan=mysqli_real_escape_string($connection, $_POST['nama_depan']);
+  $nama_belakang=mysqli_real_escape_string($connection, $_POST['nama_belakang']);
+  $provinsi=mysqli_real_escape_string($connection, $_POST['provinsi']);
+  $kota=mysqli_real_escape_string($connection, $_POST['kota']);
+  $kecamatan=mysqli_real_escape_string($connection, $_POST['kecamatan']);
+  $kode_pos=mysqli_real_escape_string($connection, $_POST['kode_pos']);
+  $pembayaran=mysqli_real_escape_string($connection, $_POST['pembayaran']);
+  $no_hp=mysqli_real_escape_string($connection, $_POST['no_hp']);
+  $tanggal=mysqli_real_escape_string($connection, $_POST['tanggal']);
  
-  $save=mysqli_query($koneksi,"INSERT INTO pemesanan VALUES(
+  $save=mysqli_query($connection,"INSERT INTO pemesanan VALUES(
       '$orderan','$nama_depan','$nama_belakang','$provinsi','$kota','$kecamatan','$kode_pos','$pembayaran','$no_hp','$tanggal')");
   if ($save){
       echo "<script> window.alert('data disimpan') window.location='tambahkendaraan.php' </script>";
